@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">My Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#lab-activity">Lab Activity</a></li>
+            <li><a href="#games">Self Exploration</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Junalyn</span> 👋</h1>
+                <p class="subtitle">BSIT Student | Aspiring Web Developer</p>
+                <p class="description">Learning today, building the future tomorrow.</p>
+                <div class="hero-buttons">
+                    <a href="biodata.html" class="btn btn-primary">My Biodata →</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-blob">
+                    <img src="profile-photo.png" alt="Junalyn Barot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>HTML</h3>
+                    <p>Semantic markup and structure</p>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS</h3>
+                    <p>Styling and responsive design</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Interactive web applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lab-activity" class="section">
+        <div class="container">
+            <h2>Lab Activity</h2>
+            <div class="activity-grid">
+                <a href="lab1/index.html" class="activity-card">
+                    <h3>Lab Activity 1</h3>
+                    <p>Mission to Alpha Centauri</p>
+                </a>
+                <a href="lab2/index.html" class="activity-card">
+                    <h3>Lab Activity 2</h3>
+                    <p>Personal Profile</p>
+                </a>
+                <a href="lab3/index.html" class="activity-card">
+                    <h3>Lab Activity 3</h3>
+                    <p>To-Do List</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="section alt-bg">
+        <div class="container">
+            <h2>Self Exploration</h2>
+            <div class="games-grid">
+                <a href="lab4/index.html" class="game-card">
+                    <h3>Memory Card Game</h3>
+                    <p>Match the pairs!</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-content">
+                <p class="contact-intro">Feel free to reach out! I'd love to hear from you.</p>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon">📘</span>
+                        <div class="contact-info">
+                            <h3>Facebook</h3>
+                            <a href="https://www.facebook.com/" target="_blank">Junalyn Barot Ganzan</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📸</span>
+                        <div class="contact-info">
+                            <h3>Instagram</h3>
+                            <a href="https://www.instagram.com/_urbyang/" target="_blank">@_urbyang</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div class="contact-info">
+                            <h3>Email</h3>
+                            <a href="mailto:junalynbarot@gmail.com">junalynbarot@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div class="contact-info">
+                            <h3>Phone</h3>
+                            <a href="tel:09364340426">09364340426</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Junalyn Barot. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Active navigation on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

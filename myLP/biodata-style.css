@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 30%, #8e2454 60%, #1a1a2e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.biodata-page {
+    width: 100%;
+    max-width: 700px;
+}
+
+.biodata-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-radius: 30px;
+    padding: 0;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.6s ease;
+    overflow: hidden;
+}
+
+/* Header with gradient background */
+.bio-header {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+    padding: 40px 30px 80px;
+    text-align: center;
+    position: relative;
+}
+
+.bio-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.98) 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.bio-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.bio-photo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.bio-header h1 {
+    color: white;
+    font-size: 2rem;
+    margin-top: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bio-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+/* Bio Details Section */
+.bio-details {
+    padding: 30px 40px;
+    background: transparent;
+}
+
+.bio-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    border-radius: 12px;
+    border-left: 4px solid #ff6b9d;
+    transition: all 0.3s ease;
+}
+
+.bio-row:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.15);
+    border-left-color: #c44569;
+}
+
+.bio-label {
+    font-weight: 700;
+    color: #ff6b9d;
+    width: 130px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bio-value {
+    color: #333;
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Actions */
+.bio-actions {
+    padding: 20px 40px 40px;
+}
+
+.btn {
+    display: block;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-back {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    box-shadow: 0 5px 25px rgba(26, 26, 46, 0.4);
+}
+
+.btn-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(26, 26, 46, 0.5);
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .biodata-card {
+        box-shadow: none;
+    }
+
+    .bio-header {
+        background: #ff6b9d;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .bio-actions {
+        display: none;
+    }
+
+    .bio-row:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .biodata-card {
+        border-radius: 20px;
+    }
+
+    .bio-header {
+        padding: 30px 20px 70px;
+    }
+
+    .bio-photo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .bio-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .bio-details {
+        padding: 20px;
+    }
+
+    .bio-row {
+        flex-direction: column;
+        gap: 5px;
+        padding: 14px 16px;
+    }
+
+    .bio-label {
+        width: 100%;
+        margin-bottom: 3px;
+    }
+
+    .bio-actions {
+        padding: 15px 20px 30px;
+    }
+}
